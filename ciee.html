@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juntas Somos Mais Fortes - Campanha de Conscientização</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+        /* Estilos Gerais */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navegação (Header) */
+        header {
+            background-color: white;
+            padding: 15px 0;
+            border-bottom: 3px solid #e56b6f;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5em;
+            color: #e56b6f;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #495057;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #e56b6f;
+        }
+
+        /* Seções */
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: #e56b6f;
+            margin-bottom: 10px;
+        }
+
+        .hero-section {
+            
+            color: white;
+            padding: 150px 0;
+            /* Define o caminho do arquivo GIF */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('We are Community - Hompage_4.gif');
+            
+            /* Garante que o GIF cubra toda a seção */
+            background-size: cover;
+            
+            /* Centraliza o GIF */
+            background-position: center;
+            
+            /* Impede que o GIF se repita e preencha a seção */
+            background-repeat: no-repeat;
+            
+            /* Opcional: fixa o GIF no fundo, criando um efeito de paralaxe */
+            background-attachment: fixed;
+            height: 380px;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5em;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+        }
+
+        .hero-section p {
+            font-size: 1.2em;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #e56b6f;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #c95c5d;
+        }
+
+        /* Seção de Conteúdo */
+        .content-section {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .content-section h3 {
+            color: #e56b6f;
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            /*flex-wrap: wrap;*/
+
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 8px;
+            width: 30%;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Galeria de Fotos e Vídeos */
+        .gallery-container, .videos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-top: 30px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .video-item {
+            width: 100%;
+            height: 200px;
+        }
+
+        /* Formulário de Contato */
+        #contact .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form label, .contact-form input, .contact-form textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: #e56b6f;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #c95c5d;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">Juntas Somos Mais Fortes</a>
+                <ul>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#help">Ajuda</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <h1>Nós Estamos Aqui por Você.</h1>
+                <p>Campanha de conscientização e apoio contra a violência de gênero.</p>
+                <a href="relatos.html" class="button">Compartilhe seu relato!</a>
+            </div>
+        </section>  
+
+        <section id="about">
+            <div class="container">
+                <h2>Nossa Missão</h2>
+                <div class="content-section">
+                    <p>A iniciativa "Juntas Somos Mais Fortes" surgiu do desejo de construir um refúgio para mulheres que enfrentam a violência, um espaço onde o silêncio se transforma em voz. Acreditamos firmemente que a informação e o apoio mútuo são as ferramentas mais poderosas para iniciar a jornada de superação. Nossa missão é clara: educar sobre os diversos tipos de abuso, fornecer acesso a recursos essenciais e, acima de tudo, honrar e amplificar as histórias de resiliência e força, mostrando que nenhuma mulher está sozinha. Juntas, estamos rompendo o ciclo da violência e construindo um futuro de segurança e dignidade para todas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="help">
+            <div class="container"> 
+                <h2>Como Podemos Ajudar?</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <h3>Disque Denúncia</h3>
+                        <p>Ligue para o <strong>180</strong>. O serviço é gratuito e funciona 24 horas por dia, em todo o Brasil. Não hesite em buscar ajuda.</p>
+                        <a href="https://prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/noticias/144294" class="button">Ligar 180</a>
+                    </div>
+                    <div class="card">
+                        <h3>Compartilhe</h3>
+                        <p>Compartilhe suas experiências no nosso site e leia as histórias de outras mulheres. Acesse nossa área de relatos</p>
+                        <a href="relatos.html" class="button">Compartilhe</a>
+                    </div>
+                    <div class="card">
+                        <h3>Recursos de Apoio</h3>
+                        <p>Os Centros de Atendimento para Mulheres Vítimas de Violência são unidades voltadas para ajudar as mulheres.</p>
+                        <a href="https://prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/centros_de_atendimento/144279" class="button">Conhecer</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="container">
+                
+                <h2>Vídeos Inspiradores</h2>
+                <div class="videos-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PdDQXV6jsLQ?si=1U-gJ40s2gfSmdxh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PdDQXV6jsLQ?si=vXN1uSgFibM1wPdZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!--<section id="contact">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <form class="contact-form">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </div>
+        </section>-->
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Juntas Somos Mais Fortes. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

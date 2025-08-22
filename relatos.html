@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórum Anônimo - Juntas Somos Mais Fortes</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+        /* Estilos Gerais */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            border-bottom: 3px solid #e56b6f;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: #e56b6f;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #6c757d;
+        }
+
+        /* Botão Principal */
+        .post-button-container {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .post-button {
+            display: inline-block;
+            background-color: #e56b6f;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .post-button:hover {
+            background-color: #c95c5d;
+        }
+
+        /* Seção do Fórum (Posts) */
+        .forum-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .forum-section h2 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            color: #e56b6f;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .relatos-titulo {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            color: #e56b6f;
+            margin-top: 0;
+        }
+
+        .post {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-meta {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        .post-meta strong {
+            color: #e56b6f;
+        }
+
+        .post-content {
+            white-space: pre-wrap; /* Mantém a formatação do texto (quebras de linha, etc.) */
+        }
+        
+        /* Seção do Formulário de Envio */
+        #form-section {
+            display: none; /* Inicia escondida, será mostrada com o botão */
+            padding: 40px;
+            margin-top: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        #form-section h2 {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            color: #e56b6f;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .post-form textarea {
+            width: 100%;
+            height: 200px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: inherit;
+            resize: vertical;
+            margin-bottom: 15px;
+        }
+
+        .post-form button {
+            background-color: #e56b6f;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .post-form button:hover {
+            background-color: #c95c5d;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #343a40;
+            color: white;
+            margin-top: 40px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Fórum Juntas Somos Mais Fortes</h1>
+            <p>Um espaço seguro para compartilhar e encontrar apoio.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="post-button-container">
+                <a href="#" class="post-button" onclick="showForm()">Escreva seu Depoimento Anônimo</a>
+            </div>
+
+            <div id="form-section">
+                <h2>Compartilhe sua História</h2>
+                <form class="post-form" id="anon-form">
+                    <textarea id="post-content" placeholder="Escreva seu relato aqui. Ele será totalmente anônimo." required></textarea>
+                    <button type="submit">Publicar Depoimento</button>
+                </form>
+            </div>
+
+            <h2 class="relatos-titulo">Relatos da Comunidade</h2>
+            <div class="forum-section" id="forum-posts">
+                
+                <div class="posts-adicionados">
+
+                </div>
+
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-meta">Publicado em 14 de ago. de 2025</div>
+                    </div>
+                    <div class="post-content">"Ela era apenas uma criança, cheia de risos e inocência, quando a figura que deveria protegê-la a traiu. O silêncio da casa se tornou um eco de seus gritos abafados. O medo se instalou em sua alma, corroendo a confiança e a alegria. Anos depois, ela ainda luta para reconstruir os pedaços de si mesma, mas a sombra do abuso nunca desaparece completamente."</div>
+                </div>
+
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-meta">Publicado em 12 de ago. de 2025</div>
+                    </div>
+                    <div class="post-content">"Ele era seu primeiro amor, aquele que a fazia sentir-se segura e especial. Mas, por trás da fachada carinhosa, espreitava um monstro que controlava cada passo seu. As agressões verbais se transformaram em empurrões, e logo, ela se viu aprisionada em um ciclo de violência do qual parecia impossível escapar. O amor virou uma cela, e ela se tornou uma prisioneira do medo e da humilhação."</div>
+                </div>
+
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-meta">Publicado em 12 de ago. de 2025</div>
+                    </div>
+                    <div class="post-content">"O escritório era seu refúgio, o lugar onde ela se sentia forte e capaz. No entanto, o chefe, um homem que ela respeitava, começou a fazer comentários inadequados, toques indesejados e ameaças veladas. O assédio no trabalho a fez questionar seu próprio valor e talento. Ela se sentia impotente e sozinha, presa em uma situação que minava sua dignidade e sua vontade de seguir em frente."</div>
+                </div>
+
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-meta">Publicado em 12 de ago. de 2025</div>
+                    </div>
+                    <div class="post-content">"A festa parecia uma noite de diversão e liberdade, mas tudo mudou quando a bebida foi alterada. A tontura se transformou em desorientação, e as luzes se apagaram. Ela acordou em um lugar estranho, com uma sensação de vazio e desespero. O que deveria ser uma noite de celebração se tornou um pesadelo, roubando sua alegria e sua sensação de segurança. A lembrança do abuso a assombra, mas ela continua lutando para recuperar o controle de sua própria vida."</div>
+                </div>
+
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-meta">Publicado em 12 de ago. de 2025</div>
+                    </div>
+                    <div class="post-content">"O ônibus estava lotado, e ela estava voltando para casa, exausta depois de um longo dia de trabalho. A mão que se aproximava sorrateiramente em sua perna, a respiração no pescoço. O assédio público, a sensação de impotência e a vergonha a fizeram questionar a segurança de espaços públicos. Ela se sentiu violada em plena luz do dia, em um lugar onde tantas pessoas testemunharam, mas ninguém agiu para ajudá-la."</div>
+                </div>
+
+                </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Juntas Somos Mais Fortes. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Funções para mostrar o formulário e adicionar novos posts
+        function showForm() {
+            document.getElementById('form-section').style.display = 'block';
+            document.getElementById('post-content').focus(); // Foca no campo de texto
+        }
+    
+        document.getElementById('anon-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+    
+            const postContent = document.getElementById('post-content').value;
+    
+            if (postContent.trim() === '') {
+                alert('Por favor, escreva seu depoimento.');
+                return;
+            }
+    
+            const now = new Date();
+            const dateString = now.toLocaleDateString('pt-BR', { day: 'numeric', month: 'short', year: 'numeric' });
+    
+            const newPostHTML = `
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-meta">Publicado em ${dateString}</div>
+                    </div>
+                    <div class="post-content">${postContent}</div>
+                </div>
+            `;
+    
+            const forumPosts = document.getElementById('forum-posts');
+            forumPosts.insertAdjacentHTML('afterbegin', newPostHTML);
+    
+            // Limpa o formulário após o envio
+            document.getElementById('post-content').value = '';
+            document.getElementById('form-section').style.display = 'none'; // Esconde o formulário
+    
+            alert('Depoimento enviado com sucesso! Obrigado por compartilhar.');
+        });
+    </script>
+    
+
+</body>
+</html>
